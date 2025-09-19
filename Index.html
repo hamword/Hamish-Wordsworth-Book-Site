@@ -8,11 +8,16 @@
       font-family: Arial, sans-serif;
       overflow-x: hidden;
       overflow-y: hidden;
+      background-image: url('background.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
     }
 
+    /* --- Top Section --- */
     .top-section {
-      display: flex;              /* Makes two sections side by side */
-      height: 25vh;               /* Top half of the page */
+      display: flex;              /* Two sections side by side */
+      height: 25vh;               /* Top section height */
       justify-content: space-between;
       align-items: center;        /* Vertically center content */
       padding: 1rem;
@@ -21,98 +26,64 @@
     }
 
     .top-section h1 {
-	margin: 0;
+      margin: 0;
     }
 
     .top-section img {
-	height: 100%;
+      height: 100%;
     }
 
     .text {
-      flex: 1;                    /* Takes half of the space */
+      flex: 1;                    
       padding-right: 5px;
       margin-left: 250px;
     }
 
     .image {
-      flex: 1;                    /* Takes half of the space */
+      flex: 1;
       display: flex;
-      justify-content: left;    /* Center image horizontally */
-      align-items: bottom;        /* Center image vertically */
+      justify-content: center;
+      align-items: bottom;
     }
 
     .image img {
-      max-width: 100%;            /* Prevents image from overflowing */
-      max-height: 100%;           /* Fits image within top half */
-      object-fit: contain;        /* Keeps aspect ratio */
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
     }
-  </style>
 
-  <style>
-    .body {
-      background-image: url('background.png');
-      background-size: cover;
-      background-attachment: fixed;
-      background-repeart: no-repeat;
+    /* --- Carousel Wrapper for Scaling --- */
+    .carousel-wrapper {
       display: flex;
       justify-content: center;
       align-items: center;
-      height: 40vh;
-      background: transparent;
-      margin: 0;
+      transform: scale(1.5);         /* Scale carousel to 150% */
+      transform-origin: center top;  /* Grows from top center */
+      margin: 40px 0;                /* Add spacing so it doesn’t overlap */
     }
 
+    /* --- Carousel Section --- */
     .carousel {
       display: block;
       margin: 0 auto;
       position: relative;
-      max-width: 750px;
+      max-width: 1125px;
       overflow: hidden;
-      border: none;
       border-radius: 10px;
       background: transparent;
     }
 
-    .carousel img {
-      height: 300px;
+    .slide {
+      display: flex;
+      transition: transform 0.5s ease;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .slide img {
+      height: 450px;
       width: auto;
       object-fit: contain;
-    }
-
-    .slide {
-	width: 60%;
-	height: 80%;
-	background-color: transparent;
-	border: none;
-	outline: none;
-	display: flex;
-	transition: transform 0.5s ease;
-	jsutify-content: center;
-	align-items: center;
-	font-size: 2rem;
-    }
-
-    .bottom-section {
-	colour: white;
-	height: 35vh;
-	padding: 2rem;
-	background-color: transparent;
-	text-align: center;
-    }
-
-    .social-logos img {
-      margin: 0 10px;        /* adds spacing between logos */
-    }
-
-    .images {
-      display: flex;
-      transition: transform 0.4s ease;
-    }
-
-    .images img {
-      width: 600px;
-      height: 400px;
-      object-fit: cover;
     }
 
     .arrow {
@@ -126,187 +97,189 @@
       cursor: pointer;
       padding: 10px;
       border-radius: 50%;
+      z-index: 10;
     }
 
     .arrow.left { left: 10px; }
     .arrow.right { right: 10px; }
+
+    /* --- Bottom Section --- */
+    .bottom-section {
+      position: absolute;       /* Position relative to the page */
+      bottom: 20px;             /* Distance from bottom of screen */
+      width: 100%;              /* Stretch across screen */
+      display: flex;            
+      justify-content: center;  /* Center horizontally */
+      align-items: center;   
+      gap: 20px;                /* Space between icons */
+      pointer-events: auto;     /* Ensure clicks work */
+}
+
+    .bottom-section img {
+      width: 48px;
+      height: 48px;
+}
+
+    .social-logos img {
+      display: flex;
+      gap: 18px;
+      align-items: center;
+    }
+
+    /* --- Core Strip --- */
+    #carousel-container {
+      width: 600px;       /* Adjust width: 4 images × 150px each */
+      margin: auto;
+      overflow: hidden;
+    }
+
+    #carousel-strip {
+      display: flex;
+      transition: transform 0.3s ease;
+    }
+
+    #carousel-strip img {
+      width: 150px;
+      height: auto;
+      flex-shrink: 0;
+    }
   </style>
 </head>
 <body>
 
+  <!-- Top Section -->
   <div class="top-section">
     <div class="text">
       <h1>
-	<span style="color: white;">H</span>
-	<span style="font-size:0.6em;
-	color:yellow;
-	vertical-align: top;
-	">amish</span>
+        <span style="color: white;">H</span>
+        <span style="font-size:0.6em; color:yellow; vertical-align: top;">amish</span>
       </h1>
       <h1>
-	<span style="color: white;">W</span>
-	<span style="font-size:0.6em;
-	color:yellow;
-	">ordsworth</span>
+        <span style="color: white;">W</span>
+        <span style="font-size:0.6em; color:yellow;">ordsworth</span>
       </h1>
-	<span style="color: white;">
-      <p>Dive into tales of survival, discovery, and wonder. Your next adventure awaits.</p></span>
+      <span style="color: white;">
+        <p>Dive into tales of survival, discovery, and wonder. Your next adventure awaits.</p>
+      </span>
     </div>
     <div class="image">
       <a href="https://www.amazon.com/author/hamishwordsworth.url" target="_blank">
-      <img src="hamish.png" width="100" height="100" alt="Hamish Wordsworth">
+        <img src="Hamish.png" width="100" height="100" alt="Hamish Wordsworth">
       </a>
     </div>
   </div>
 
-  <div class="carousel">
-    <div class="slide" id="imageStrip">
-      <a href="https://www.amazon.com/dp/B0F7HXMDZM" target="_blank">
-	<img src="book covers\1.jpg" alt="Book 1">
-      </a>
-      <a href="https://www.amazon.com/Oblivion-Raised-Hamish-Wordsworth-ebook/dp/B0F8B2K6TQ?ref_=saga_dp_bnx_dsk_dp" target="_blank">
-        <img src="book covers\2.jpg" alt="Book 2">
-      </a>
-      <a href="https://www.amazon.com/Sense-Oblivion-Hamish-Wordsworth-ebook/dp/B0F8X5LPX3?ref_=saga_dp_bnx_dsk_dp" target="_blank">
-        <img src="book covers\3.jpg" alt="Book 3">
-      </a>
-      <a href="https://www.amazon.com/Oblivion-Veiled-Hamish-Wordsworth-ebook/dp/B0F9KW8B6F?ref_=saga_dp_bnx_dsk_dp" target="_blank">
-        <img src="book covers\4.jpg" alt="Book 4">
-      </a>
-      <a href="https://www.amazon.com/Oblivion-Echoes-Hamish-Wordsworth-ebook/dp/B0FBM9PPGQ?ref_=saga_dp_bnx_dsk_dp" target="_blank">
-        <img src="book covers\5.jpg" alt="Book 5">
-      </a>
-      <a href="https://www.amazon.com/Oblivion-Scarred-Hamish-Wordsworth-ebook/dp/B0FCSPYNNW?ref_=saga_dp_bnx_dsk_dp" target="_blank">
-        <img src="book covers\6.jpg" alt="Book 6">
-      </a>
-      <a href="https://www.amazon.com/Oblivions-Web-Hamish-Wordsworth-ebook/dp/B0FG2HSJDH?ref_=saga_dp_bnx_dsk_dp" target="_blank">
-        <img src="book covers\7.jpg" alt="Book 7">
-      </a>
-      <a href="https://www.amazon.com/Oblivion-Time-Hamish-Wordsworth-ebook/dp/B0FKZMB4W7?ref_=saga_dp_bnx_dsk_dp" target="_blank">
-        <img src="book covers\8.jpg" alt="Book 8">
-      </a>
-      <a href="https://www.amazon.com/Oblivion-Remembered-Hamish-Wordsworth-ebook/dp/B0FL9MGMB9?ref_=saga_dp_bnx_dsk_dp" target="_blank">
-        <img src="book covers\9.jpg" alt="Book 9">
-      </a>
-      <a href="https://www.amazon.com/Oblivion-Released-Hamish-Wordsworth-ebook/dp/B0FMPSMCPH?ref_=saga_dp_bnx_dsk_dp" target="_blank">
-        <img src="book covers\10.jpg" alt="Book 10">
-      </a>
-      <a href="https://www.amazon.com/shoulders-knees-Bubby-Learns-Words-ebook/dp/B0F4P98VSB/ref=sr_1_4?s=digital-text&sr=1-4" target="_blank">
-        <img src="book covers\Head shoulders Knees and Toes.jpg" alt="Head shoulders Knees and Toes">
-      </a>
-      <a href="https://www.amazon.com/Please-cookie-Mummy-Hamish-Wordsworth-ebook/dp/B0F4Q41SY4/ref=sr_1_2?s=digital-text&sr=1-2" target="_blank">
-        <img src="book covers\Please Eat Cookie Mummy.jpg" alt="Please Eat Cookie Mummy">
-      </a>
-      <a href="https://www.amazon.com/Please-cookie-Daddy-Hamish-Wordsworth-ebook/dp/B0F4Q4CHGP/ref=sr_1_1?s=digital-text&sr=1-1" target="_blank">
-        <img src="book covers\Please Eat Cookie Daddy.jpg" alt="Please Eat Cookie Daddy">
-      </a>
-      <a href="https://www.amazon.com/Cuddles-Bubby-Learns-Hamish-Wordsworth-ebook/dp/B0F4M5L23S/ref=sr_1_2?s=digital-text&sr=1-2" target="_blank">
-        <img src="book covers\Cuddles.jpg" alt="Cuddles">
-      </a>
+  <!-- Carousel Section (Wrapped for Scaling) -->
+  <div class="carousel-wrapper">
+    <div class="carousel">
+      <button class="arrow left" onclick="moveSlide(-1)">←</button>
+      <div id="carousel-container">
+        <div id="carousel-strip">
+          <!-- All 14 Books -->
+          <a href="https://www.amazon.com/dp/B0F7HXMDZM" target="_blank">
+            <img src="book covers/1.jpg" alt="Book 1">
+          </a>
+          <a href="https://www.amazon.com/Oblivion-Raised-Hamish-Wordsworth-ebook/dp/B0F8B2K6TQ" target="_blank">
+            <img src="book covers/2.jpg" alt="Book 2">
+          </a>
+          <a href="https://www.amazon.com/Sense-Oblivion-Hamish-Wordsworth-ebook/dp/B0F8X5LPX3" target="_blank">
+            <img src="book covers/3.jpg" alt="Book 3">
+          </a>
+          <a href="https://www.amazon.com/Oblivion-Veiled-Hamish-Wordsworth-ebook/dp/B0F9KW8B6F" target="_blank">
+            <img src="book covers/4.jpg" alt="Book 4">
+          </a>
+          <a href="https://www.amazon.com/Oblivion-Echoes-Hamish-Wordsworth-ebook/dp/B0FBM9PPGQ" target="_blank">
+            <img src="book covers/5.jpg" alt="Book 5">
+          </a>
+          <a href="https://www.amazon.com/Oblivion-Scarred-Hamish-Wordsworth-ebook/dp/B0FCSPYNNW" target="_blank">
+            <img src="book covers/6.jpg" alt="Book 6">
+          </a>
+          <a href="https://www.amazon.com/Oblivions-Web-Hamish-Wordsworth-ebook/dp/B0FG2HSJDH" target="_blank">
+            <img src="book covers/7.jpg" alt="Book 7">
+          </a>
+          <a href="https://www.amazon.com/Oblivion-Time-Hamish-Wordsworth-ebook/dp/B0FKZMB4W7" target="_blank">
+            <img src="book covers/8.jpg" alt="Book 8">
+          </a>
+          <a href="https://www.amazon.com/Oblivion-Remembered-Hamish-Wordsworth-ebook/dp/B0FL9MGMB9" target="_blank">
+            <img src="book covers/9.jpg" alt="Book 9">
+          </a>
+          <a href="https://www.amazon.com/Oblivion-Released-Hamish-Wordsworth-ebook/dp/B0FMPSMCPH" target="_blank">
+            <img src="book covers/10.jpg" alt="Book 10">
+          </a>
+          <a href="https://www.amazon.com/shoulders-knees-Bubby-Learns-Words-ebook/dp/B0F4P98VSB" target="_blank">
+            <img src="book covers/Head shoulders Knees and Toes.jpg" alt="Head shoulders Knees and Toes">
+          </a>
+          <a href="https://www.amazon.com/Please-cookie-Mummy-Hamish-Wordsworth-ebook/dp/B0F4Q41SY4" target="_blank">
+            <img src="book covers/Please Eat Cookie Mummy.jpg" alt="Please Eat Cookie Mummy">
+          </a>
+          <a href="https://www.amazon.com/Please-cookie-Daddy-Hamish-Wordsworth-ebook/dp/B0F4Q4CHGP" target="_blank">
+            <img src="book covers/Please Eat Cookie Daddy.jpg" alt="Please Eat Cookie Daddy">
+          </a>
+          <a href="https://www.amazon.com/Cuddles-Bubby-Learns-Hamish-Wordsworth-ebook/dp/B0F4M5L23S" target="_blank">
+            <img src="book covers/Cuddles.jpg" alt="Cuddles">
+          </a>
+        </div>
+      </div>
+      <button class="arrow right" onclick="moveSlide(1)">→</button>
     </div>
-      <button class="arrow left" onclick="moveSlide(-1)">&#8592;</button>
-      <button class="arrow right" onclick="moveSlide(1)">&#8594;</button>
   </div>
 
- <script>
-(function() {
-  const track = document.getElementById("imageStrip");
-  let currentIndex = 0;
-  const visibleCount = 4; // exactly 4 books visible
-  let slideWidth = 0;
-  let totalSlides = 0;
+  <!-- Carousel Logic -->
+  <script>
+    const carouselStrip = document.getElementById("carousel-strip");
+    const originalImages = Array.from(carouselStrip.children);
+    const totalImages = originalImages.length;
+    const visibleCount = 4; // Number of images visible at a time
+    let currentIndex = 0;
 
-  function setupCarousel() {
-    if (!track) return;
+    // --- Clone first and last 4 images ---
+    const firstClones = originalImages.slice(0, visibleCount).map(img => img.cloneNode(true));
+    const lastClones = originalImages.slice(-visibleCount).map(img => img.cloneNode(true));
 
-    // remove any previously added clones
-    Array.from(track.querySelectorAll("[data-clone='true']")).forEach(n => n.remove());
+    // Append first clones at the end
+    firstClones.forEach(clone => carouselStrip.appendChild(clone));
+    // Prepend last clones at the start
+    lastClones.reverse().forEach(clone => carouselStrip.insertBefore(clone, carouselStrip.firstChild));
 
-    const originalSlides = Array.from(track.children);
-    totalSlides = originalSlides.length;
+    // Update all images after cloning
+    const allImages = Array.from(carouselStrip.children);
 
-    if (totalSlides === 0) return;
-
-    // compute width of a single slide
-    slideWidth = originalSlides[0].clientWidth;
-
-    // clone first 4 slides to end
-    for (let i = 0; i < visibleCount; i++) {
-      const clone = originalSlides[i].cloneNode(true);
-      clone.setAttribute("data-clone", "true");
-      track.appendChild(clone);
-    }
-
-    // clone last 4 slides to start
-    for (let i = 0; i < visibleCount; i++) {
-      const clone = originalSlides[totalSlides - visibleCount + i].cloneNode(true);
-      clone.setAttribute("data-clone", "true");
-      track.insertBefore(clone, track.firstChild);
-    }
-
-    // start at first real slide (index = visibleCount)
+    // Set initial position to the "real" first image
     currentIndex = visibleCount;
-    track.style.transition = "none";
-    track.style.transform = `translateX(${-currentIndex * slideWidth}px)`;
-    void track.offsetWidth; // force reflow
-  }
+    carouselStrip.style.transform = `translateX(${-currentIndex * 150}px)`; // 150px per image
 
-  window.addEventListener("load", setupCarousel);
-  window.addEventListener("resize", () => {
-    clearTimeout(window._carouselResizeTimer);
-    window._carouselResizeTimer = setTimeout(setupCarousel, 120);
-  });
+    function moveSlide(direction) {
+      currentIndex += direction;
+      carouselStrip.style.transition = "transform 0.3s ease";
+      carouselStrip.style.transform = `translateX(${-currentIndex * 150}px)`;
 
-  window.moveSlide = function(direction) {
-    if (!track) return;
-
-    currentIndex += direction;
-    track.style.transition = "transform 0.45s ease";
-    track.style.transform = `translateX(${-currentIndex * slideWidth}px)`;
-
-    track.addEventListener("transitionend", function handler() {
-      const realCount = totalSlides;
-
-      // forward wrap
-      if (currentIndex >= visibleCount + realCount) {
-        track.style.transition = "none";
-        currentIndex = visibleCount;
-        requestAnimationFrame(() => {
-          track.style.transform = `translateX(${-currentIndex * slideWidth}px)`;
-        });
+      // Wrap-around logic (flicker free)
+      if (currentIndex === 0) {
+        setTimeout(() => {
+          carouselStrip.style.transition = "none";
+          currentIndex = totalImages;
+          carouselStrip.style.transform = `translateX(${-currentIndex * 150}px)`;
+        }, 310);
+      } else if (currentIndex === totalImages + visibleCount) {
+        setTimeout(() => {
+          carouselStrip.style.transition = "none";
+          currentIndex = visibleCount;
+          carouselStrip.style.transform = `translateX(${-currentIndex * 150}px)`;
+        }, 310);
       }
+    }
+  </script>
 
-      // backward wrap
-      if (currentIndex < visibleCount) {
-        track.style.transition = "none";
-        currentIndex = visibleCount + realCount - 1;
-        requestAnimationFrame(() => {
-          track.style.transform = `translateX(${-currentIndex * slideWidth}px)`;
-        });
-      }
-
-      track.removeEventListener("transitionend", handler);
-    });
-  };
-})();
-</script>
-
+  <!-- Bottom Section -->
   <div class="bottom-section">
     <div class="social-logos">
-	<a href="https://www.facebook.com/profile.php?id=61580287891618" target="_blank">
-	  <img src="Facebook.png" alt="Facebook" width="40" height="40">
-	</a>
-	<a href="https://www.instagram.com/booksforyounow/" target="_blank">
-	  <img src="Instagram.png" alt="Instagram" width="40" height="40">
-	</a>
+      <a href="https://www.facebook.com/profile.php?id=61580287891618" target="_blank">
+        <img src="Facebook.png" alt="Facebook" width="40" height="40">
+      </a>
+      <a href="https://www.instagram.com/booksforyounow/" target="_blank">
+        <img src="Instagram.png" alt="Instagram" width="40" height="40">
+      </a>
     </div>
-  </div>
-
-  <div class="body">
-    <body style="background-image: url('background.png');
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;">
   </div>
 
 </body>
