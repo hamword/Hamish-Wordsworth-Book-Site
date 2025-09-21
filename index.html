@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Hamish Wordsworth</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       margin: 0;
@@ -16,12 +15,19 @@
       background-repeat: no-repeat;
     }
 
+    /* --- Top Section Wrapper --- */
+    .top-section-wrapper {
+      display: flex;
+      justify-content: center;  /* Center top section horizontally */
+    }
+
     /* --- Top Section --- */
     .top-section {
       display: flex;              /* Two sections side by side */
-      height: 25vh;               /* Top section height */
       justify-content: space-between;
       align-items: center;        /* Vertically center content */
+      width: 600px;               /* Match carousel width */
+      height: 25vh;
       padding: 1rem;
       box-sizing: border-box;
       margin-bottom: 40px;
@@ -31,14 +37,9 @@
       margin: 0;
     }
 
-    .top-section img {
-      height: 100%;
-    }
-
     .text {
       flex: 1;                    
       padding-right: 5px;
-      margin-left: 250px;
     }
 
     .image {
@@ -60,8 +61,8 @@
       justify-content: center;
       align-items: center;
       transform: scale(1.5);         /* Scale carousel to 150% */
-      transform-origin: center top;  /* Grows from top center */
-      margin: 40px 0;                /* Add spacing so it doesn’t overlap */
+      transform-origin: center top;  /* Grow from top center */
+      margin: 40px 0;
     }
 
     /* --- Carousel Section --- */
@@ -122,7 +123,7 @@
       height: 48px;
     }
 
-    .social-logos {
+    .social-logos img {
       display: flex;
       gap: 18px;
       align-items: center;
@@ -150,24 +151,26 @@
 <body>
 
   <!-- Top Section -->
-  <div class="top-section">
-    <div class="text">
-      <h1>
-        <span style="color: white;">H</span>
-        <span style="font-size:0.6em; color:yellow; vertical-align: top;">amish</span>
-      </h1>
-      <h1>
-        <span style="color: white;">W</span>
-        <span style="font-size:0.6em; color:yellow;">ordsworth</span>
-      </h1>
-      <span style="color: white;">
-        <p>Dive into tales of survival, discovery, and wonder. Your next adventure awaits.</p>
-      </span>
-    </div>
-    <div class="image">
-      <a href="https://www.amazon.com/author/hamishwordsworth.url" target="_blank">
-        <img src="Hamish.png" width="100" height="100" alt="Hamish Wordsworth">
-      </a>
+  <div class="top-section-wrapper">
+    <div class="top-section">
+      <div class="text">
+        <h1>
+          <span style="color: white;">H</span>
+          <span style="font-size:0.6em; color:yellow; vertical-align: top;">amish</span>
+        </h1>
+        <h1>
+          <span style="color: white;">W</span>
+          <span style="font-size:0.6em; color:yellow;">ordsworth</span>
+        </h1>
+        <span style="color: white;">
+          <p>Dive into tales of survival, discovery, and wonder. Your next adventure awaits.</p>
+        </span>
+      </div>
+      <div class="image">
+        <a href="https://www.amazon.com/author/hamishwordsworth.url" target="_blank">
+          <img src="Hamish.png" width="100" height="100" alt="Hamish Wordsworth">
+        </a>
+      </div>
     </div>
   </div>
 
@@ -178,48 +181,20 @@
       <div id="carousel-container">
         <div id="carousel-strip">
           <!-- All 14 Books -->
-          <a href="https://www.amazon.com/dp/B0F7HXMDZM" target="_blank">
-            <img src="book covers/1.jpg" alt="Book 1">
-          </a>
-          <a href="https://www.amazon.com/Oblivion-Raised-Hamish-Wordsworth-ebook/dp/B0F8B2K6TQ" target="_blank">
-            <img src="book covers/2.jpg" alt="Book 2">
-          </a>
-          <a href="https://www.amazon.com/Sense-Oblivion-Hamish-Wordsworth-ebook/dp/B0F8X5LPX3" target="_blank">
-            <img src="book covers/3.jpg" alt="Book 3">
-          </a>
-          <a href="https://www.amazon.com/Oblivion-Veiled-Hamish-Wordsworth-ebook/dp/B0F9KW8B6F" target="_blank">
-            <img src="book covers/4.jpg" alt="Book 4">
-          </a>
-          <a href="https://www.amazon.com/Oblivion-Echoes-Hamish-Wordsworth-ebook/dp/B0FBM9PPGQ" target="_blank">
-            <img src="book covers/5.jpg" alt="Book 5">
-          </a>
-          <a href="https://www.amazon.com/Oblivion-Scarred-Hamish-Wordsworth-ebook/dp/B0FCSPYNNW" target="_blank">
-            <img src="book covers/6.jpg" alt="Book 6">
-          </a>
-          <a href="https://www.amazon.com/Oblivions-Web-Hamish-Wordsworth-ebook/dp/B0FG2HSJDH" target="_blank">
-            <img src="book covers/7.jpg" alt="Book 7">
-          </a>
-          <a href="https://www.amazon.com/Oblivion-Time-Hamish-Wordsworth-ebook/dp/B0FKZMB4W7" target="_blank">
-            <img src="book covers/8.jpg" alt="Book 8">
-          </a>
-          <a href="https://www.amazon.com/Oblivion-Remembered-Hamish-Wordsworth-ebook/dp/B0FL9MGMB9" target="_blank">
-            <img src="book covers/9.jpg" alt="Book 9">
-          </a>
-          <a href="https://www.amazon.com/Oblivion-Released-Hamish-Wordsworth-ebook/dp/B0FMPSMCPH" target="_blank">
-            <img src="book covers/10.jpg" alt="Book 10">
-          </a>
-          <a href="https://www.amazon.com/shoulders-knees-Bubby-Learns-Words-ebook/dp/B0F4P98VSB" target="_blank">
-            <img src="book covers/Head shoulders Knees and Toes.jpg" alt="Head shoulders Knees and Toes">
-          </a>
-          <a href="https://www.amazon.com/Please-cookie-Mummy-Hamish-Wordsworth-ebook/dp/B0F4Q41SY4" target="_blank">
-            <img src="book covers/Please Eat Cookie Mummy.jpg" alt="Please Eat Cookie Mummy">
-          </a>
-          <a href="https://www.amazon.com/Please-cookie-Daddy-Hamish-Wordsworth-ebook/dp/B0F4Q4CHGP" target="_blank">
-            <img src="book covers/Please Eat Cookie Daddy.jpg" alt="Please Eat Cookie Daddy">
-          </a>
-          <a href="https://www.amazon.com/Cuddles-Bubby-Learns-Hamish-Wordsworth-ebook/dp/B0F4M5L23S" target="_blank">
-            <img src="book covers/Cuddles.jpg" alt="Cuddles">
-          </a>
+          <a href="https://www.amazon.com/dp/B0F7HXMDZM" target="_blank"><img src="book covers/1.jpg" alt="Book 1"></a>
+          <a href="https://www.amazon.com/Oblivion-Raised-Hamish-Wordsworth-ebook/dp/B0F8B2K6TQ" target="_blank"><img src="book covers/2.jpg" alt="Book 2"></a>
+          <a href="https://www.amazon.com/Sense-Oblivion-Hamish-Wordsworth-ebook/dp/B0F8X5LPX3" target="_blank"><img src="book covers/3.jpg" alt="Book 3"></a>
+          <a href="https://www.amazon.com/Oblivion-Veiled-Hamish-Wordsworth-ebook/dp/B0F9KW8B6F" target="_blank"><img src="book covers/4.jpg" alt="Book 4"></a>
+          <a href="https://www.amazon.com/Oblivion-Echoes-Hamish-Wordsworth-ebook/dp/B0FBM9PPGQ" target="_blank"><img src="book covers/5.jpg" alt="Book 5"></a>
+          <a href="https://www.amazon.com/Oblivion-Scarred-Hamish-Wordsworth-ebook/dp/B0FCSPYNNW" target="_blank"><img src="book covers/6.jpg" alt="Book 6"></a>
+          <a href="https://www.amazon.com/Oblivions-Web-Hamish-Wordsworth-ebook/dp/B0FG2HSJDH" target="_blank"><img src="book covers/7.jpg" alt="Book 7"></a>
+          <a href="https://www.amazon.com/Oblivion-Time-Hamish-Wordsworth-ebook/dp/B0FKZMB4W7" target="_blank"><img src="book covers/8.jpg" alt="Book 8"></a>
+          <a href="https://www.amazon.com/Oblivion-Remembered-Hamish-Wordsworth-ebook/dp/B0FL9MGMB9" target="_blank"><img src="book covers/9.jpg" alt="Book 9"></a>
+          <a href="https://www.amazon.com/Oblivion-Released-Hamish-Wordsworth-ebook/dp/B0FMPSMCPH" target="_blank"><img src="book covers/10.jpg" alt="Book 10"></a>
+          <a href="https://www.amazon.com/shoulders-knees-Bubby-Learns-Words-ebook/dp/B0F4P98VSB" target="_blank"><img src="book covers/Head shoulders Knees and Toes.jpg" alt="Head shoulders Knees and Toes"></a>
+          <a href="https://www.amazon.com/Please-cookie-Mummy-Hamish-Wordsworth-ebook/dp/B0F4Q41SY4" target="_blank"><img src="book covers/Please Eat Cookie Mummy.jpg" alt="Please Eat Cookie Mummy"></a>
+          <a href="https://www.amazon.com/Please-cookie-Daddy-Hamish-Wordsworth-ebook/dp/B0F4Q4CHGP" target="_blank"><img src="book covers/Please Eat Cookie Daddy.jpg" alt="Please Eat Cookie Daddy"></a>
+          <a href="https://www.amazon.com/Cuddles-Bubby-Learns-Hamish-Wordsworth-ebook/dp/B0F4M5L23S" target="_blank"><img src="book covers/Cuddles.jpg" alt="Cuddles"></a>
         </div>
       </div>
       <button class="arrow right" onclick="moveSlide(1)">→</button>
@@ -243,9 +218,6 @@
     // Prepend last clones at the start
     lastClones.reverse().forEach(clone => carouselStrip.insertBefore(clone, carouselStrip.firstChild));
 
-    // Update all images after cloning
-    const allImages = Array.from(carouselStrip.children);
-
     // Set initial position to the "real" first image
     currentIndex = visibleCount;
     carouselStrip.style.transform = `translateX(${-currentIndex * 150}px)`; // 150px per image
@@ -255,7 +227,6 @@
       carouselStrip.style.transition = "transform 0.3s ease";
       carouselStrip.style.transform = `translateX(${-currentIndex * 150}px)`;
 
-      // Wrap-around logic (flicker free)
       if (currentIndex === 0) {
         setTimeout(() => {
           carouselStrip.style.transition = "none";
@@ -276,13 +247,13 @@
   <div class="bottom-section">
     <div class="social-logos">
       <a href="https://www.facebook.com/profile.php?id=61580287891618" target="_blank">
-        <img src="Facebook.png" alt="Facebook" width="40" height="40">
+        <img src="Facebook.png" alt="Facebook">
       </a>
       <a href="https://www.instagram.com/booksforyounow/" target="_blank">
-        <img src="Instagram.png" alt="Instagram" width="40" height="40">
+        <img src="Instagram.png" alt="Instagram">
       </a>
     </div>
   </div>
 
 </body>
-</html>
+</html>.
