@@ -8,47 +8,80 @@
       margin: 0;
       font-family: Arial, sans-serif;
       overflow-x: hidden;
-      overflow-y: hidden;
       background-image: url('background.png');
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
     }
 
-    /* --- Disclaimer --- */
-    .disclaimer {
+    /* --- Top Disclaimer --- */
+    .top-disclaimer {
+      position: fixed;
+      top: 0;
+      width: 100%;
       text-align: center;
-      font-size: 0.8rem;
-      color: white;
-      margin: 5px 0 10px 0; /* top + bottom spacing */
+      background-color: black;
+      color: black;
+      text-transform: uppercase;
+      -webkit-text-stroke: 1px white;
+      padding: 0 5px;
+      z-index: 1000;
+    }
+
+    /* --- Bottom Disclaimer --- */
+    .bottom-disclaimer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      text-align: center;
+      background-color: black;
+      color: black;
+      text-transform: uppercase;
+      -webkit-text-stroke: 1px white;
+      padding: 0 5px;
+      z-index: 1000;
+    }
+
+    /* --- Social Icons Above Bottom Disclaimer --- */
+    .bottom-section {
+      position: fixed;
+      bottom: 35px;   /* Slightly above bottom disclaimer */
+      width: 100%;
+      display: flex;            
+      justify-content: center;  
+      align-items: center;   
+      gap: 20px;                
+      pointer-events: auto;     
+      z-index: 1000;
+    }
+
+    .bottom-section img {
+      width: 48px;
+      height: 48px;
     }
 
     /* --- Top Section Wrapper --- */
     .top-section-wrapper {
       display: flex;
-      justify-content: center;  /* Center top section horizontally */
+      justify-content: center;
+      margin-top: 40px; /* Give space below top disclaimer */
     }
 
     /* --- Top Section --- */
     .top-section {
-      display: flex;              
+      display: flex;
       justify-content: space-between;
-      align-items: center;        
-      width: 600px;               /* Match carousel width */
+      align-items: center;
+      width: 600px;
       height: 25vh;
       padding: 1rem;
       box-sizing: border-box;
-      margin-bottom: 20px; /* reduced to save vertical space */
+      margin-bottom: 40px;
     }
 
-    .top-section h1 {
-      margin: 0;
-    }
+    .top-section h1 { margin: 0; }
 
-    .text {
-      flex: 1;                    
-      padding-right: 5px;
-    }
+    .text { flex: 1; padding-right: 5px; }
 
     .image {
       flex: 1;
@@ -68,9 +101,9 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      transform: scale(1.5);         
-      transform-origin: center top;  
-      margin: 20px 0; /* tightened */
+      transform: scale(1.5);
+      transform-origin: center top;
+      margin: 5px 0;
     }
 
     /* --- Carousel Section --- */
@@ -114,32 +147,9 @@
     .arrow.left { left: 10px; }
     .arrow.right { right: 10px; }
 
-    /* --- Bottom Section --- */
-    .bottom-section {
-      position: absolute;       
-      bottom: 20px;             
-      width: 100%;              
-      display: flex;            
-      justify-content: center;  
-      align-items: center;   
-      gap: 20px;                
-      pointer-events: auto;     
-    }
-
-    .bottom-section img {
-      width: 48px;
-      height: 48px;
-    }
-
-    .social-logos img {
-      display: flex;
-      gap: 18px;
-      align-items: center;
-    }
-
     /* --- Core Strip --- */
     #carousel-container {
-      width: 600px;       
+      width: 600px;
       margin: auto;
       overflow: hidden;
     }
@@ -158,9 +168,9 @@
 </head>
 <body>
 
-  <!-- Disclaimer -->
-  <div class="disclaimer">
-    *** AS AN AMAZON ASSOCIATE I EARN FROM QUALIFYING PURCHASES ***
+  <!-- Top Disclaimer -->
+  <div class="top-disclaimer">
+    <span class="highlight">As an Amazon Associate I earn from qualifying purchases</span>
   </div>
 
   <!-- Top Section -->
@@ -193,7 +203,7 @@
       <button class="arrow left" onclick="moveSlide(-1)">←</button>
       <div id="carousel-container">
         <div id="carousel-strip">
-          <!-- Books -->
+          <!-- 14 Book Images -->
           <a href="https://www.amazon.com/dp/B0F7HXMDZM" target="_blank"><img src="book covers/1.jpg" alt="Book 1"></a>
           <a href="https://www.amazon.com/Oblivion-Raised-Hamish-Wordsworth-ebook/dp/B0F8B2K6TQ" target="_blank"><img src="book covers/2.jpg" alt="Book 2"></a>
           <a href="https://www.amazon.com/Sense-Oblivion-Hamish-Wordsworth-ebook/dp/B0F8X5LPX3" target="_blank"><img src="book covers/3.jpg" alt="Book 3"></a>
@@ -219,7 +229,7 @@
     const carouselStrip = document.getElementById("carousel-strip");
     const originalImages = Array.from(carouselStrip.children);
     const totalImages = originalImages.length;
-    const visibleCount = 4; 
+    const visibleCount = 4;
     let currentIndex = 0;
 
     const firstClones = originalImages.slice(0, visibleCount).map(img => img.cloneNode(true));
@@ -252,7 +262,7 @@
     }
   </script>
 
-  <!-- Bottom Section -->
+  <!-- Bottom Social Icons -->
   <div class="bottom-section">
     <div class="social-logos">
       <a href="https://www.facebook.com/profile.php?id=61580287891618" target="_blank">
@@ -262,6 +272,11 @@
         <img src="Instagram.png" alt="Instagram">
       </a>
     </div>
+  </div>
+
+  <!-- Bottom Disclaimer -->
+  <div class="bottom-disclaimer">
+    <span class="highlight">This page contains affiliate links. If you click the link, I earn a small commission—at no extra cost to you.</span>
   </div>
 
 </body>
