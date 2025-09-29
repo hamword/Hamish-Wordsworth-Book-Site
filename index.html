@@ -15,6 +15,14 @@
       background-repeat: no-repeat;
     }
 
+    /* --- Disclaimer --- */
+    .disclaimer {
+      text-align: center;
+      font-size: 0.8rem;
+      color: white;
+      margin: 5px 0 10px 0; /* top + bottom spacing */
+    }
+
     /* --- Top Section Wrapper --- */
     .top-section-wrapper {
       display: flex;
@@ -23,14 +31,14 @@
 
     /* --- Top Section --- */
     .top-section {
-      display: flex;              /* Two sections side by side */
+      display: flex;              
       justify-content: space-between;
-      align-items: center;        /* Vertically center content */
+      align-items: center;        
       width: 600px;               /* Match carousel width */
       height: 25vh;
       padding: 1rem;
       box-sizing: border-box;
-      margin-bottom: 40px;
+      margin-bottom: 20px; /* reduced to save vertical space */
     }
 
     .top-section h1 {
@@ -60,9 +68,9 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      transform: scale(1.5);         /* Scale carousel to 150% */
-      transform-origin: center top;  /* Grow from top center */
-      margin: 40px 0;
+      transform: scale(1.5);         
+      transform-origin: center top;  
+      margin: 20px 0; /* tightened */
     }
 
     /* --- Carousel Section --- */
@@ -108,14 +116,14 @@
 
     /* --- Bottom Section --- */
     .bottom-section {
-      position: absolute;       /* Position relative to the page */
-      bottom: 20px;             /* Distance from bottom of screen */
-      width: 100%;              /* Stretch across screen */
+      position: absolute;       
+      bottom: 20px;             
+      width: 100%;              
       display: flex;            
-      justify-content: center;  /* Center horizontally */
+      justify-content: center;  
       align-items: center;   
-      gap: 20px;                /* Space between icons */
-      pointer-events: auto;     /* Ensure clicks work */
+      gap: 20px;                
+      pointer-events: auto;     
     }
 
     .bottom-section img {
@@ -131,7 +139,7 @@
 
     /* --- Core Strip --- */
     #carousel-container {
-      width: 600px;       /* Adjust width: 4 images × 150px each */
+      width: 600px;       
       margin: auto;
       overflow: hidden;
     }
@@ -150,6 +158,11 @@
 </head>
 <body>
 
+  <!-- Disclaimer -->
+  <div class="disclaimer">
+    *** AS AN AMAZON ASSOCIATE I EARN FROM QUALIFYING PURCHASES ***
+  </div>
+
   <!-- Top Section -->
   <div class="top-section-wrapper">
     <div class="top-section">
@@ -164,7 +177,6 @@
         </h1>
         <span style="color: white;">
           <p>Dive into tales of survival, discovery, and wonder. Your next adventure awaits.</p>
-          <p>AS AN AMAZON ASSOCIATE I EARN FROM QUALIFYING PURCHASES.</p>
         </span>
       </div>
       <div class="image">
@@ -175,13 +187,13 @@
     </div>
   </div>
 
-  <!-- Carousel Section (Wrapped for Scaling) -->
+  <!-- Carousel Section -->
   <div class="carousel-wrapper">
     <div class="carousel">
       <button class="arrow left" onclick="moveSlide(-1)">←</button>
       <div id="carousel-container">
         <div id="carousel-strip">
-          <!-- All 14 Books -->
+          <!-- Books -->
           <a href="https://www.amazon.com/dp/B0F7HXMDZM" target="_blank"><img src="book covers/1.jpg" alt="Book 1"></a>
           <a href="https://www.amazon.com/Oblivion-Raised-Hamish-Wordsworth-ebook/dp/B0F8B2K6TQ" target="_blank"><img src="book covers/2.jpg" alt="Book 2"></a>
           <a href="https://www.amazon.com/Sense-Oblivion-Hamish-Wordsworth-ebook/dp/B0F8X5LPX3" target="_blank"><img src="book covers/3.jpg" alt="Book 3"></a>
@@ -207,21 +219,17 @@
     const carouselStrip = document.getElementById("carousel-strip");
     const originalImages = Array.from(carouselStrip.children);
     const totalImages = originalImages.length;
-    const visibleCount = 4; // Number of images visible at a time
+    const visibleCount = 4; 
     let currentIndex = 0;
 
-    // --- Clone first and last 4 images ---
     const firstClones = originalImages.slice(0, visibleCount).map(img => img.cloneNode(true));
     const lastClones = originalImages.slice(-visibleCount).map(img => img.cloneNode(true));
 
-    // Append first clones at the end
     firstClones.forEach(clone => carouselStrip.appendChild(clone));
-    // Prepend last clones at the start
     lastClones.reverse().forEach(clone => carouselStrip.insertBefore(clone, carouselStrip.firstChild));
 
-    // Set initial position to the "real" first image
     currentIndex = visibleCount;
-    carouselStrip.style.transform = `translateX(${-currentIndex * 150}px)`; // 150px per image
+    carouselStrip.style.transform = `translateX(${-currentIndex * 150}px)`;
 
     function moveSlide(direction) {
       currentIndex += direction;
@@ -257,4 +265,4 @@
   </div>
 
 </body>
-</html>.
+</html>
