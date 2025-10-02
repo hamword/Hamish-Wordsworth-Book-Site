@@ -45,13 +45,13 @@
     /* --- Social Icons Above Bottom Disclaimer --- */
     .bottom-section {
       position: fixed;
-      bottom: 35px;   /* Slightly above bottom disclaimer */
+      bottom: 35px;
       width: 100%;
-      display: flex;            
-      justify-content: center;  
-      align-items: center;   
-      gap: 20px;                
-      pointer-events: auto;     
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      pointer-events: auto;
       z-index: 1000;
     }
 
@@ -64,36 +64,49 @@
     .top-section-wrapper {
       display: flex;
       justify-content: center;
-      margin-top: 40px; /* Give space below top disclaimer */
+      margin-top: 40px;
     }
 
-    /* --- Top Section --- */
+    /* --- Top Section (now 4 splits) --- */
     .top-section {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      width: 600px;
-      height: 25vh;
+      width: 1000px; /* increased width to allow spacing */
       padding: 1rem;
       box-sizing: border-box;
       margin-bottom: 40px;
     }
 
-    .top-section h1 { margin: 0; }
+    /* --- Split Sections --- */
+    .split-left { width: 0%; } /* empty left space */
+    .text { width: 35%; margin-left: 0px; } /* Hamish text */
+    .image { width: 20%; display: flex; justify-content: center; align-items: center; }
+    .top-linkbox { width: 20%; display: flex; justify-content: center; align-items: center; }
 
-    .text { flex: 1; padding-right: 5px; }
+    /* --- Hamish Text --- */
+    .text h1 { margin: 0; }
+    .text p { color: white; margin-top: 5px; }
 
-    .image {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: bottom;
-    }
-
+    /* --- Hamish Image --- */
     .image img {
       max-width: 100%;
       max-height: 100%;
       object-fit: contain;
+      width: 105px;
+    }
+
+    /* --- Top Link Box --- */
+    .top-linkbox a {
+      display: block;
+      padding: 10px 15px;
+      text-align: center;
+      border: 1px solid white;
+      color: white;
+      text-decoration: none;
+      background-color: transparent;
+      font-weight: bold;
+      border-radius: 5px;
     }
 
     /* --- Carousel Wrapper for Scaling --- */
@@ -164,6 +177,7 @@
       height: auto;
       flex-shrink: 0;
     }
+
   </style>
 </head>
 <body>
@@ -176,23 +190,19 @@
   <!-- Top Section -->
   <div class="top-section-wrapper">
     <div class="top-section">
+      <div class="split-left"></div>
       <div class="text">
-        <h1>
-          <span style="color: white;">H</span>
-          <span style="font-size:0.6em; color:yellow; vertical-align: top;">amish</span>
-        </h1>
-        <h1>
-          <span style="color: white;">W</span>
-          <span style="font-size:0.6em; color:yellow;">ordsworth</span>
-        </h1>
-        <span style="color: white;">
-          <p>Dive into tales of survival, discovery, and wonder. Your next adventure awaits.</p>
-        </span>
+        <h1><span style="color: white;">H</span><span style="font-size:0.6em; color:yellow; vertical-align: top;">amish</span></h1>
+        <h1><span style="color: white;">W</span><span style="font-size:0.6em; color:yellow;">ordsworth</span></h1>
+        <p>Dive into tales of survival, discovery, and wonder. Your next adventure awaits.</p>
       </div>
       <div class="image">
         <a href="https://www.amazon.com/author/hamishwordsworth.url" target="_blank">
-          <img src="Hamish.png" width="100" height="100" alt="Hamish Wordsworth">
+          <img src="Hamish.png" alt="Hamish Wordsworth">
         </a>
+      </div>
+      <div class="top-linkbox">
+        <a href="page 2.html">The<br>Oblivion<br>storyline</a>
       </div>
     </div>
   </div>
