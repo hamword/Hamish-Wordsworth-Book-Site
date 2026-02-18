@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Page 2 - Oblivion Series</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* --- Background --- */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      overflow-x: hidden;
+      background-image: url('background.png');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    /* --- Top Disclaimer --- */
+    .top-disclaimer {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      text-align: center;
+      background-color: black;
+      color: black;
+      text-transform: uppercase;
+      -webkit-text-stroke: 1px white;
+      padding: 0 5px;
+      z-index: 1000;
+    }
+
+    /* --- Bottom Disclaimer --- */
+    .bottom-disclaimer {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      text-align: center;
+      background-color: black;
+      color: black;
+      text-transform: uppercase;
+      -webkit-text-stroke: 1px white;
+      padding: 0 5px;
+      z-index: 1000;
+    }
+
+    /* --- Page Content --- */
+    #content {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      padding-top: 60px; /* space below top header */
+      text-align: center;
+      color: white;
+    }
+
+    #content h1 {
+      margin: 10px 0;
+      font-size: 2.5em;
+    }
+
+    #content h2 {
+      margin: 10px 0 30px 0;
+      font-size: 1.2em;
+      line-height: 1.4em;
+    }
+
+    /* --- Book Container --- */
+    .books-row {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+
+    /* --- Magnifier Container --- */
+    .magnifier-container {
+      position: relative;
+      display: inline-block;
+      cursor: zoom-in;
+    }
+
+    .magnifier-container img {
+      width: 75%; /* scale down to 75% */
+      max-width: 150px;
+      height: auto;
+      display: block;
+      transition: transform 0.2s ease;
+      z-index: 1;
+    }
+
+    /* --- Floating Zoom Image --- */
+    #floating-zoom {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 10000;
+      pointer-events: none;
+      box-shadow: 0 0 20px rgba(0,0,0,0.8);
+      max-width: 90vw;
+      max-height: 90vh;
+    }
+
+    /* --- Return Button --- */
+    .return-button {
+      margin: 10px 0 20px 0;
+      padding: 10px 20px;
+      font-size: 1em;
+      cursor: pointer;
+      background-color: black;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+    }
+    .icon {
+      width: 85px;
+      height: 85px;
+      vertical-align: middle;
+      margin: 0 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Top Disclaimer -->
+  <div class="top-disclaimer">
+    <span>As an Amazon Associate I earn from qualifying purchases</span>
+  </div>
+
+  <!-- Page Content -->
+  <div id="content">
+    <h1>
+    <img src="Website Season/Egg4.png" class="icon">
+    The Oblivion Series
+    <img src="Website Season/Egg6.png" class="icon">
+    FREE to read on Kindle Unlimited
+      </h1>
+    <h2>
+      When Oblivion was just the beginning and a culture finds its feet again,<br>
+      find out how new beginnings can discover new horizons and a path to what awaits...
+    </h2>
+
+    <!-- First Row of 5 Books -->
+    <div class="books-row">
+      <div class="magnifier-container">
+        <a href="https://amzn.to/4qkTvaH" target="_blank">
+          <img src="book covers/Samsara back.jpg" alt="Samsara">
+        </a>
+      </div>
+      <div class="magnifier-container">
+        <a href="https://amzn.to/49b991c" target="_blank">
+          <img src="book covers/Vithara back.jpg" alt="Vithara">
+        </a>
+      </div>
+      <div class="magnifier-container">
+        <a href="https://amzn.to/49cT1Of" target="_blank">
+          <img src="book covers/Prarambha back.jpg" alt="Prarambha">
+        </a>
+      </div>
+      <div class="magnifier-container">
+        <a href="https://amzn.to/3OfQZov" target="_blank">
+          <img src="book covers/Purva back.jpg" alt="Purva">
+        </a>
+      </div>
+    </div>
+
+    <!-- Return Button -->
+    <div class="books-row">
+      <a href="Page 2.html" class="return-button">Find Out About Oblivion</a>
+      <a href="index.html" class="return-button">Return to Main Page</a>
+    </div>
+  </div>
+
+  <!-- Floating Magnified Image -->
+  <img id="floating-zoom" src="" alt="Zoomed Book">
+
+  <!-- Bottom Disclaimer -->
+  <div class="bottom-disclaimer">
+    <span>This page contains affiliate links. If you click the link, I earn a small commission—at no extra cost to you.</span>
+  </div>
+
+  <!-- Magnifier Script -->
+  <script>
+    const floatingZoom = document.getElementById("floating-zoom");
+    const magnifierImgs = document.querySelectorAll(".magnifier-container img");
+    const ZOOM_SCALE = 4; // doubled from previous size for better readability
+
+    magnifierImgs.forEach(img => {
+      img.addEventListener("mouseenter", e => {
+        floatingZoom.src = img.src;
+        floatingZoom.style.display = "block";
+
+        // Uniform magnification for all images
+        const thumbWidth = img.getBoundingClientRect().width;
+        floatingZoom.style.width = (thumbWidth * ZOOM_SCALE) + "px";
+        floatingZoom.style.height = "auto";
+      });
+
+      img.addEventListener("mouseleave", e => {
+        floatingZoom.style.display = "none";
+      });
+    });
+  </script>
+
+</body>
+</html>
